@@ -23,6 +23,7 @@ public class MemoFont extends JDialog {
 	private JList<String> jlFont, jlStyle, jlSize;
 	private DefaultListModel<String> dlmFont, dlmStyle, dlmSize;
 	private JButton jbtApply, jbtClose;
+	private TitledBorder ttbdPreview;
 
 	private JavaMemo jm;
 	
@@ -30,92 +31,103 @@ public class MemoFont extends JDialog {
 			super(jm, "글꼴", true);
 			this.jm = jm;
 			
-		//글꼴 영역 컴포넌트
+		// 글꼴 영역 컴포넌트
 		JLabel jlblFont = new JLabel("글꼴");
 		jtfFont = new JTextField(10);
+		jlblFont.setFont(JavaMemo.FontSetup);
 		
-		//글꼴 리스트
-		//Model 객체 생성
+		// 글꼴 리스트
+		// Model 객체 생성
 		dlmFont = new DefaultListModel<String>();
-		//리스트 값
+		// 리스트 값
 		dlmFont.addElement("Dialog");
 		dlmFont.addElement("DialogInput");
 		dlmFont.addElement("Serif");
 		dlmFont.addElement("SansSerif");
 		dlmFont.addElement("Monospaced");
 		
-		//View 객체 생성
-		jlFont = new JList<String>(dlmFont); 
-		//스크롤바
+		// View 객체 생성
+		jlFont = new JList<String>(dlmFont);
+		jlFont.setFont(JavaMemo.FontSetup);
+		// 스크롤바
 		JScrollPane jspFont = new JScrollPane(jlFont);
 		
 		
-		//글꼴 스타일 영역 컴포넌트
+		// 글꼴 스타일 영역 컴포넌트
 		JLabel jlblStyle = new JLabel("글꼴 스타일");
 		jtfStyle = new JTextField(10);
+		jlblStyle.setFont(JavaMemo.FontSetup);
 		
-		//글꼴 스타일 리스트
-		//Model 객체 생성
+		// 글꼴 스타일 리스트
+		// Model 객체 생성
 		dlmStyle = new DefaultListModel<String>();
-		//리스트 값
+		// 리스트 값
 		dlmStyle.addElement("일반");
 		dlmStyle.addElement("굵게");
 		dlmStyle.addElement("기울임꼴");
 		dlmStyle.addElement("굵은기울임꼴");
 		
-		//View 객체 생성
-		jlStyle = new JList<String>(dlmStyle); 
+		// View 객체 생성
+		jlStyle = new JList<String>(dlmStyle);
+		jlStyle.setFont(JavaMemo.FontSetup);
 		//스크롤바
 		JScrollPane jspStyle = new JScrollPane(jlStyle);
 		
 		
-		//크기 영역 컴포넌트
+		// 크기 영역 컴포넌트
 		JLabel jlblSize = new JLabel("크기");
 		jtfSize = new JTextField(5);
+		jlblSize.setFont(JavaMemo.FontSetup);
 		
-		//크기 리스트
+		// 크기 리스트
 		//Model 객체 생성
 		dlmSize = new DefaultListModel<String>();
-		//리스트 값 : 8~100
+		// 리스트 값 : 8~100
 		for (int i = 8; i < 101; i++) {
 			dlmSize.addElement(i+"");
 		}//for
 		
-		//View 객체 생성
-		jlSize = new JList<String>(dlmSize); 
-		//스크롤바
+		// View 객체 생성
+		jlSize = new JList<String>(dlmSize);
+		jlSize.setFont(JavaMemo.FontSetup);
+		// 스크롤바
 		JScrollPane jspSize = new JScrollPane(jlSize);
 		
 		
-		//미리보기 영역 컴포넌트
+		// 미리보기 영역 컴포넌트
 		jlblPreview = new JLabel("AaBbYyZz");
 		jlblPreview.setHorizontalAlignment(JLabel.CENTER);
+		jlblPreview.setFont(JavaMemo.FontSetup);
 		
 		
-		//타이틀보더 설정
-		jlblPreview.setBorder(new TitledBorder("미리보기"));
+		// 타이틀보더 설정
+		ttbdPreview = new TitledBorder("미리보기");
+		ttbdPreview.setTitleFont(JavaMemo.FontSetup);
+		jlblPreview.setBorder(ttbdPreview);
 		
-		
-		//스크립트 영역 컴포넌트
+		// 스크립트 영역 컴포넌트
 		JLabel jlblScript = new JLabel("스크립트");
+		jlblScript.setFont(JavaMemo.FontSetup);
 		
-		//Model 객체 생성
+		// Model 객체 생성
 		String[] scriptValue = {"영어","한글"};
 		dcbmScript = new DefaultComboBoxModel<String>(scriptValue);
 		
-		//View 객체 생성
+		// View 객체 생성
 		jcbScript = new JComboBox<String>(dcbmScript);
+		jcbScript.setFont(JavaMemo.FontSetup);
 		
-		
-		//버튼 영역 컴포넌트
+		// 버튼 영역 컴포넌트
 		jbtApply = new JButton("적용");
 		jbtClose = new JButton("닫기");
+		jbtApply.setFont(JavaMemo.FontSetup);
+		jbtClose.setFont(JavaMemo.FontSetup);
 		
 		
-		//배치관리자 설정 : 수동배치
+		// 배치관리자 설정 : 수동배치
 		setLayout(null); 
 		
-		//컴포넌트의 위치와 크기 수동 설정
+		// 컴포넌트의 위치와 크기 수동 설정
 		jlblFont.setBounds(20, 10, 145, 35);
 		jtfFont.setBounds(20, 40, 145, 25);
 		jspFont.setBounds(20, 65, 145, 120);
@@ -135,7 +147,7 @@ public class MemoFont extends JDialog {
 		jbtApply.setBounds(220, 400, 80, 25);
 		jbtClose.setBounds(310, 400, 80, 25);
 		
-		//배치
+		// 배치
 		add(jlblFont);
 		add(jtfFont);
 		add(jspFont);
@@ -154,7 +166,7 @@ public class MemoFont extends JDialog {
 		add(jbtApply);
 		add(jbtClose);
 		
-		//이벤트처리 객체 생성
+		// 이벤트처리 객체 생성
 		MemoFontEvt mfEvt = new MemoFontEvt(this);
 		
 		addMouseListener(mfEvt);
@@ -167,7 +179,7 @@ public class MemoFont extends JDialog {
 //		dcbmScript.addMouseListener(mfEvt); 외않되?
 		
 		
-		//크기설정
+		// 크기설정
 		setBounds(300, 300, 430, 480);
 		setVisible(true);
 		

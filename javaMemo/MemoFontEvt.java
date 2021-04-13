@@ -54,8 +54,8 @@ public class MemoFontEvt extends MouseAdapter implements WindowListener {
 	
 	
 	private void setFont() {
-		//글꼴 JList의 아이템을 클릭하면
-		//선택한 아이템 값을 JTextField설정한다.
+		// 글꼴 JList의 아이템을 클릭하면
+		// 선택한 아이템 값을 JTextField설정한다.
 		mf.getJtfFont().setText(mf.getJlFont().getSelectedValue());
 		
 		setPreview(); // 미리보기 바꾸기
@@ -63,8 +63,8 @@ public class MemoFontEvt extends MouseAdapter implements WindowListener {
 	
 	
 	private void setStyle() {
-		//스타일 JList의 아이템을 클릭하면
-		//선택한 아이템 값을 JTextField설정한다.
+		// 스타일 JList의 아이템을 클릭하면
+		// 선택한 아이템 값을 JTextField설정한다.
 		mf.getJtfStyle().setText(mf.getJlStyle().getSelectedValue());
 		
 		setPreview(); // 미리보기 바꾸기
@@ -72,8 +72,8 @@ public class MemoFontEvt extends MouseAdapter implements WindowListener {
 	
 	
 	private void setSize() {
-		//크기 JList의 아이템을 클릭하면
-		//선택한 아이템 값을 JTextField설정한다.
+		// 크기 JList의 아이템을 클릭하면
+		// 선택한 아이템 값을 JTextField설정한다.
 		mf.getJtfSize().setText(mf.getJlSize().getSelectedValue());
 		
 		setPreview(); // 미리보기 바꾸기
@@ -81,8 +81,8 @@ public class MemoFontEvt extends MouseAdapter implements WindowListener {
 	
 	
 	private void setPreview() {
-		//글꼴, 스타일, 사이즈 클릭할 때마다 
-		//미리보기에 실시간 적용이 되어야한다.
+		// 글꼴, 스타일, 사이즈 클릭할 때마다 
+		// 미리보기에 실시간 적용이 되어야한다.
 		
 		// 단, JList중 어느 하나라도 선택하지 않은 상태인 경우 아무것도 하지 않고 리턴
 		if (mf.getJlFont().isSelectionEmpty() ||
@@ -122,8 +122,8 @@ public class MemoFontEvt extends MouseAdapter implements WindowListener {
 	
 	
 	private void setScript() {
-		//스크립트를 변경하면 영어인 경우 미리보기에 "AaBbYyZz"로 설정되고
-		//한글인 경우 "AbBbYyZz 가나다" 로 설정된다.
+		// 스크립트를 변경하면 영어인 경우 미리보기에 "AaBbYyZz"로 설정되고
+		// 한글인 경우 "AbBbYyZz 가나다" 로 설정된다.
 		if (mf.getDcbmScript().getSelectedItem() == "영어") {
 //			System.out.println("영어");
 			mf.setjlblPreviewText("AbBbYyZz");
@@ -136,12 +136,12 @@ public class MemoFontEvt extends MouseAdapter implements WindowListener {
 	
 	
 	private void fontApply() {
-		//"적용"을 클릭하면 부모창에 JTextArea 미리보기 라벨의 Font정보가 설정되고 JDialog가 닫힌다.
+		// "적용"을 클릭하면 부모창에 JTextArea 미리보기 라벨의 Font정보가 설정되고 JDialog가 닫힌다.
 		mf.getJm().setJtaMemo(statusFont);
 	}//fontApply
 	
 	private void fontClose() {
-		//"닫기"를 클릭하면 JDialog가 닫힌다.
+		// "닫기"를 클릭하면 JDialog가 닫힌다.
 		mf.dispose();
 	}//fontClose
 	

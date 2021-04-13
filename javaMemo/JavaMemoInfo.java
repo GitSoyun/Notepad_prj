@@ -43,6 +43,7 @@ public class JavaMemoInfo extends JDialog {
 		
 		// 버튼 컴포넌트
 		jbtClose = new JButton("닫기");
+		jbtClose.setFont(JavaMemo.FontSetup);
 		
 		// 배치관리자 설정
 		setLayout(null);
